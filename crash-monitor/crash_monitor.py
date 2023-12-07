@@ -68,6 +68,7 @@ class CrashMonitor:
 
 
 if __name__ == "__main__":
+    #  python crash-monitor/crash_monitor.py
     parser = argparse.ArgumentParser(description="Application heartbeat monitor")
     parser.add_argument('--hosts', type=str, help='Zookeeper hosts',
                         default='localhost:2182,localhost:2183,localhost:2184')

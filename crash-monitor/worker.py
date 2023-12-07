@@ -43,6 +43,7 @@ class NodeHeartBeat:
 
 
 if __name__ == "__main__":
+    # python crash-monitor/worker.py
     parser = argparse.ArgumentParser(description="Applicaion heartbeat daemon")
     parser.add_argument('--hosts', type=str, help='Zookeeper hosts',
                         default='localhost:2182,localhost:2183,localhost:2184')
