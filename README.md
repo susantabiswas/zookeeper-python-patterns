@@ -1,11 +1,14 @@
 # zookeeper-python-patterns
 
 # Development Setup
+
+1. Download the zookeeper zip and extract it
+2. ```cd <zookeeper_directory>```
 **Check server status**
 
 Shows details of current server like whether follower/leader etc
 
-```cd <zookeeper_directory>
+```
 $ ./bin/zkServer.sh status conf2/zoo.cfg
 /usr/bin/java
 ZooKeeper JMX enabled by default
