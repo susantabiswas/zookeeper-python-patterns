@@ -6,6 +6,26 @@
 2. ```cd <zookeeper_directory>```
 **Check server status**
 
+**Setup Multi-node setup on the same machine, if actually done on diff machines then no need**
+
+- create separate data folders for each server
+- under each data folder, create a file ‘myid’ and inside that put an unique id like 1,2,3 respectively for each of the servers
+- create separate conf folders for each server e.g conf1/zoo.cfg
+- For each zoo.cfg, make the following change
+    
+    ```
+    # Unique for each server
+    dataDir=./data/data1
+    # Unique for each server
+    clientPort=2184
+    
+    # At the end append, the same below server details, 2666:3666 (peer-to-peer port: leader election port)
+    # put different values server
+    server.1=localhost:2666:3666
+    server.2=localhost:2667:3667
+    server.3=localhost:2668:3668
+    ```
+    
 Shows details of current server like whether follower/leader etc
 
 ```
@@ -39,26 +59,6 @@ Mode: follower
 💡 ./bin/zkServer.sh stop conf3/zoo.cfg
 
 </aside>
-
-**Setup Multi-node setup on the same machine, if actually done on diff machines then no need**
-
-- create separate data folders for each server
-- under each data folder, create a file ‘myid’ and inside that put an unique id like 1,2,3 respectively for each of the servers
-- create separate conf folders for each server e.g conf1/zoo.cfg
-- For each zoo.cfg, make the following change
-    
-    ```
-    # Unique for each server
-    dataDir=./data/data1
-    # Unique for each server
-    clientPort=2184
-    
-    # At the end append, the same below server details, 2666:3666 (peer-to-peer port: leader election port)
-    # put different values server
-    server.1=localhost:2666:3666
-    server.2=localhost:2667:3667
-    server.3=localhost:2668:3668
-    ```
     
 
 **Create node**
